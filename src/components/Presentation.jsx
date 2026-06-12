@@ -2,6 +2,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import qr from '../qr/qrglush.png';
+import screen1_1 from '../images/1.1.png'
+import screen1_2 from '../images/1.2.png'
+import screen2_1 from '../images/2.1.png'
+import screen2_2 from '../images/2.2.png'
+import screen3_1 from '../images/3.1.png'
+import screen3_2 from '../images/3.2.png'
+import screen4_1 from '../images/4.1.png'
+import screen4_2 from '../images/4.2.png'
 import './Presentation.css';
 
 const Presentation = () => {
@@ -261,13 +269,6 @@ const Presentation = () => {
         ))}
       </div>
 
-      <button className="nav-arrow prev" onClick={() => currentSlide > 0 && setCurrentSlide(prev => prev - 1)}>
-        ←
-      </button>
-      <button className="nav-arrow next" onClick={() => currentSlide < slides.length - 1 && setCurrentSlide(prev => prev + 1)}>
-        →
-      </button>
-
       <div className="slides-wrapper">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
@@ -299,7 +300,7 @@ const Presentation = () => {
   );
 };
 
-// Слайд 0 - Титульная страница (с QR-кодом и информацией о дипломе)
+// Слайд 0 - Титульная страница
 const Slide0 = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
   
@@ -319,8 +320,8 @@ const Slide0 = () => {
       >
         <div className="logo-glow" />
         <div className="logo-3d">
-          <span className="logo-text-lux">LUX</span>
-          <span className="logo-text-trips">TRIPS</span>
+          <span className="logo-text-lux">Визы и </span>
+          <span className="logo-text-trips">Путешествия</span>
         </div>
       </motion.div>
       
@@ -340,7 +341,6 @@ const Slide0 = () => {
         Дипломный проект
       </motion.p>
       
-      {/* QR-код с рамкой и без бесконечной анимации */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -350,10 +350,8 @@ const Slide0 = () => {
         <div className="qr-frame">
           <img src={qr} alt="QR-код" className="qr-code" />
         </div>
-        <div className="qr-text">Сканируйте для просмотра презентации</div>
       </motion.div>
       
-      {/* Информация о дипломе */}
       <motion.div
         initial={{ y: 30, opacity: 0 }}
         animate={inView ? { y: 0, opacity: 1 } : {}}
@@ -362,7 +360,7 @@ const Slide0 = () => {
       >
         <div className="info-line">
           <span className="info-label">Выполнил:</span>
-          <span className="info-value">Соколов Андрей Александрович, группа ИСП-04</span>
+          <span className="info-value">Глушков Александр Владимирович, группа ИСП-05</span>
         </div>
         <div className="info-line">
           <span className="info-label">Руководитель:</span>
@@ -370,7 +368,7 @@ const Slide0 = () => {
         </div>
         <div className="info-line">
           <span className="info-label">Учреждение:</span>
-          <span className="info-value">Новгородский строительный колледж, 2024</span>
+          <span className="info-value">Новгородский строительный колледж, 2026</span>
         </div>
       </motion.div>
       
@@ -380,8 +378,6 @@ const Slide0 = () => {
         transition={{ duration: 0.5, delay: 1.4 }}
         className="scroll-hint"
       >
-        <span>Прокрутите вниз</span>
-        <div className="scroll-mouse" />
       </motion.div>
     </div>
   );
@@ -393,7 +389,7 @@ const Slide1 = () => {
   
   const stats = [
     { number: "6-8%", label: "Ежегодный рост рынка люксовых путешествий" },
-    { number: "40+", label: "Эксклюзивных туров в каталоге" },
+    { number: "30+", label: "Эксклюзивных туров в каталоге" },
     { number: "24/7", label: "Поддержка клиентов" },
   ];
   
@@ -414,8 +410,8 @@ const Slide1 = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="relevance-text"
         >
-          <p>Туристический бизнес активно переходит в онлайн-пространство. Традиционные турагентства теряют клиентов из-за отсутствия современных цифровых решений.</p>
-          <p>Создание веб-приложения для премиального турагентства позволяет автоматизировать процессы бронирования, сократить время обработки заявок и повысить качество обслуживания клиентов.</p>
+          <p>В современной эпохе автоматизации и информатизации существует острая потребность в создании приложений для удобного бронирования туров и управления заявками. Такое приложение может повысить качество и скорость работы сотрудников туристического агентства, а также сделать процесс выбора и бронирования тура более комфортным для клиентов.</p>
+          <p>Разработка такого приложения позволит сократить временные и ресурсные затраты, улучшить координацию деятельности и создать благоприятную среду для взаимодействия всех конечных пользователей.</p>
         </motion.div>
         <div className="stats-grid">
           {stats.map((stat, idx) => (
@@ -442,11 +438,11 @@ const Slide2 = () => {
   
   const tasks = [
     "Провести анализ предметной области",
-    "Разработать клиентскую часть на React",
-    "Реализовать систему бронирования с валидацией",
-    "Создать серверную часть на Firebase",
-    "Разработать административную панель",
-    "Внедрить систему отзывов и рейтингов",
+    "Проанализировать существующие решения на рынке",
+    "Выбрать средства разработки информационной системы",
+    "Разработать план выполнения дипломного проекта",
+    "Разработать веб-приложение",
+    "Разработать описание применения информационной системы",
   ];
   
   return (
@@ -465,8 +461,8 @@ const Slide2 = () => {
         transition={{ duration: 0.6, delay: 0.2, type: "spring" }}
         className="goal-card"
       >
-        <h3>🎯 Цель</h3>
-        <p>Разработать веб-приложение для премиального туристического агентства «LUX TRIPS» с функционалом бронирования туров, личного кабинета и административной панели.</p>
+        <h3>Цель</h3>
+        <p>Разработка информационной системы для автоматизации деятельности туристического агентства «Визы и путешествия».</p>
       </motion.div>
       <div className="tasks-grid">
         {tasks.map((task, idx) => (
@@ -477,7 +473,6 @@ const Slide2 = () => {
             transition={{ duration: 0.5, delay: 0.3 + idx * 0.08, type: "spring", bounce: 0.2 }}
             className="task-item"
           >
-            <div className="task-check">✓</div>
             <span>{task}</span>
           </motion.div>
         ))}
@@ -491,12 +486,12 @@ const Slide3 = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
   
   const technologies = [
-    { name: "React 19", icon: "⚛️", color: "#61dafb", desc: "Библиотека для создания пользовательских интерфейсов" },
-    { name: "Firebase", icon: "🔥", color: "#ffca28", desc: "Платформа для серверной части и аутентификации" },
-    { name: "Three.js", icon: "🌍", color: "#c77dff", desc: "3D-глобус с интерактивными маркерами" },
-    { name: "Framer Motion", icon: "🎨", color: "#d4af37", desc: "Плавные анимации и переходы" },
-    { name: "CSS3", icon: "🎨", color: "#2965f1", desc: "Стилизация и адаптивный дизайн" },
-    { name: "JavaScript", icon: "📜", color: "#f7df1e", desc: "Логика приложения" },
+    { name: "React 19", icon: "", color: "#61dafb", desc: "Библиотека для создания пользовательских интерфейсов" },
+    { name: "Firebase", icon: "", color: "#ffca28", desc: "Платформа для серверной части и аутентификации" },
+    { name: "Three.js", icon: "", color: "#c77dff", desc: "3D-глобус с интерактивными маркерами" },
+    { name: "Framer Motion", icon: "", color: "#d4af37", desc: "Плавные анимации и переходы" },
+    { name: "CSS3", icon: "", color: "#2965f1", desc: "Стилизация и адаптивный дизайн" },
+    { name: "JavaScript", icon: "", color: "#f7df1e", desc: "Логика приложения" },
   ];
   
   return (
@@ -533,8 +528,8 @@ const Slide3 = () => {
 const Slide4 = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
   const images = [
-    "https://via.placeholder.com/800x450/5a3b6e/fff?text=Главная+страница",
-    "https://via.placeholder.com/800x450/6a4a7e/fff?text=Hero+блок"
+    {screen1_1},
+    {screen1_2}
   ];
   
   return (
@@ -558,7 +553,7 @@ const Slide4 = () => {
           >
             <div className="screenshot-img">
               <img src={img} alt={`screenshot-${idx}`} />
-              <div className="screenshot-overlay"><span>🔍</span></div>
+              <div className="screenshot-overlay"><span></span></div>
             </div>
           </motion.div>
         ))}
