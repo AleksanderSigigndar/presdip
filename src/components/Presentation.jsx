@@ -364,7 +364,7 @@ const Slide0 = () => {
         </div>
         <div className="info-line">
           <span className="info-label">Руководитель:</span>
-          <span className="info-value">Сметанин Александр Евгеньевич, преподаватель</span>
+          <span className="info-value">Сметанин Андрей Евгеньевич, преподаватель</span>
         </div>
         <div className="info-line">
           <span className="info-label">Учреждение:</span>
