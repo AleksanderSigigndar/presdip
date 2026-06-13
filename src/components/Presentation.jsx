@@ -527,10 +527,7 @@ const Slide3 = () => {
 // Слайд 4 - Скриншоты 1
 const Slide4 = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
-  const images = [
-    {screen1_1},
-    {screen1_2}
-  ];
+  const images = [screen1_1, screen1_2];
   
   return (
     <div className="slide slide-screenshot" ref={ref}>
@@ -562,36 +559,33 @@ const Slide4 = () => {
   );
 };
 
-// Слайд 5 - Скриншоты 2
+// Слайд 5 (каталог)
 const Slide5 = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
-  const images = [
-    "https://via.placeholder.com/800x450/7a5a8e/fff?text=Каталог+туров",
-    "https://via.placeholder.com/800x450/8a6a9e/fff?text=Детальная+страница"
-  ];
+  const images = [screen2_1, screen2_2];
   
   return (
     <div className="slide slide-screenshot" ref={ref}>
       <div className="slide-bg-glow" />
       <motion.h2
-        initial={{ filter: "blur(10px)", opacity: 0 }}
-        animate={inView ? { filter: "blur(0px)", opacity: 1 } : {}}
-        transition={{ duration: 0.7 }}
+        initial={{ opacity: 0, y: -50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
       >
-        Каталог туров и страница деталей
+        Каталог товаров с фильтрацией
       </motion.h2>
       <div className="screenshot-grid">
         {images.map((img, idx) => (
           <motion.div
             key={idx}
-            initial={{ filter: "blur(15px)", opacity: 0, scale: 0.9 }}
-            animate={inView ? { filter: "blur(0px)", opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 0.7, delay: idx * 0.2 }}
+            initial={{ borderRadius: "50%", scale: 0.3, opacity: 0 }}
+            animate={inView ? { borderRadius: "16px", scale: 1, opacity: 1 } : {}}
+            transition={{ duration: 0.7, delay: idx * 0.2, type: "spring", bounce: 0.4 }}
             className="screenshot-card"
           >
             <div className="screenshot-img">
               <img src={img} alt={`screenshot-${idx}`} />
-              <div className="screenshot-overlay"><span>🔍</span></div>
+              <div className="screenshot-overlay"><span></span></div>
             </div>
           </motion.div>
         ))}
@@ -600,20 +594,16 @@ const Slide5 = () => {
   );
 };
 
-// Слайд 6 - Скриншоты 3
 const Slide6 = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
-  const images = [
-    "https://via.placeholder.com/800x450/5a3b6e/fff?text=Личный+кабинет",
-    "https://via.placeholder.com/800x450/6a4a7e/fff?text=Бронирование"
-  ];
+  const images = [screen3_1, screen3_2];
   
   return (
     <div className="slide slide-screenshot" ref={ref}>
       <div className="slide-bg-glow" />
       <motion.h2
-        initial={{ scale: 0.5, opacity: 0 }}
-        animate={inView ? { scale: 1, opacity: 1 } : {}}
+        initial={{ opacity: 0, y: -50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
       >
         Личный кабинет и бронирование
@@ -622,14 +612,14 @@ const Slide6 = () => {
         {images.map((img, idx) => (
           <motion.div
             key={idx}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={inView ? { scale: 1, opacity: 1 } : {}}
-            transition={{ duration: 0.5, delay: idx * 0.2, type: "spring", bounce: 0.5 }}
+            initial={{ borderRadius: "50%", scale: 0.3, opacity: 0 }}
+            animate={inView ? { borderRadius: "16px", scale: 1, opacity: 1 } : {}}
+            transition={{ duration: 0.7, delay: idx * 0.2, type: "spring", bounce: 0.4 }}
             className="screenshot-card"
           >
             <div className="screenshot-img">
               <img src={img} alt={`screenshot-${idx}`} />
-              <div className="screenshot-overlay"><span>🔍</span></div>
+              <div className="screenshot-overlay"><span></span></div>
             </div>
           </motion.div>
         ))}
@@ -638,36 +628,32 @@ const Slide6 = () => {
   );
 };
 
-// Слайд 7 - Скриншоты 4
 const Slide7 = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
-  const images = [
-    "https://via.placeholder.com/800x450/7a5a8e/fff?text=Админ+панель",
-    "https://via.placeholder.com/800x450/8a6a9e/fff?text=Отзывы"
-  ];
+  const images = [screen4_1, screen4_2]; // 👈 ВСТАВЛЯЙТЕ СКРИНЫ СЮДА
   
   return (
     <div className="slide slide-screenshot" ref={ref}>
       <div className="slide-bg-glow" />
       <motion.h2
-        initial={{ skewX: "20deg", opacity: 0, x: 50 }}
-        animate={inView ? { skewX: "0deg", opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        initial={{ opacity: 0, y: -50 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, type: "spring", bounce: 0.3 }}
       >
-        Административная панель и отзывы
+        Панель администратора и отзывы
       </motion.h2>
       <div className="screenshot-grid">
         {images.map((img, idx) => (
           <motion.div
             key={idx}
-            initial={{ skewX: "15deg", opacity: 0, x: 30 }}
-            animate={inView ? { skewX: "0deg", opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.5, delay: idx * 0.15 }}
+            initial={{ borderRadius: "50%", scale: 0.3, opacity: 0 }}
+            animate={inView ? { borderRadius: "16px", scale: 1, opacity: 1 } : {}}
+            transition={{ duration: 0.7, delay: idx * 0.2, type: "spring", bounce: 0.4 }}
             className="screenshot-card"
           >
             <div className="screenshot-img">
               <img src={img} alt={`screenshot-${idx}`} />
-              <div className="screenshot-overlay"><span>🔍</span></div>
+              <div className="screenshot-overlay"><span></span></div>
             </div>
           </motion.div>
         ))}
@@ -682,7 +668,7 @@ const Slide8 = () => {
   
   const achievements = [
     "Разработано полнофункциональное веб-приложение",
-    "Реализовано 40+ туров с динамической подгрузкой",
+    "Реализовано 30+ туров с динамической подгрузкой",
     "Создана система бронирования с валидацией",
     "Внедрена административная панель для управления",
     "Добавлен 3D-глобус с интерактивными маркерами",
@@ -705,8 +691,8 @@ const Slide8 = () => {
         transition={{ duration: 0.6, delay: 0.2 }}
         className="conclusion-text"
       >
-        <p>В ходе выполнения дипломной работы было разработано современное веб-приложение для премиального туристического агентства «LUX TRIPS». Приложение позволяет клиентам просматривать каталог туров, бронировать поездки, оставлять отзывы, а сотрудникам — эффективно управлять заявками через административную панель.</p>
-        <p>Использование современных технологий (React, Firebase, Three.js) обеспечивает высокую производительность, надёжность и привлекательный интерфейс. Разработанный продукт готов к внедрению в реальную бизнес-среду.</p>
+        <p>В ходе выполнения дипломной работы были полностью достигнуты поставленные цель и задачи. Приложение позволяет клиентам просматривать каталог туров, бронировать поездки, оставлять отзывы, а сотрудникам — эффективно управлять заявками через административную панель.</p>
+        <p>Использование современных технологий (React, Firebase) обеспечивает высокую производительность, надёжность и привлекательный интерфейс. Разработанный продукт готов к внедрению в реальную бизнес-среду.</p>
       </motion.div>
       <div className="achievements-grid">
         {achievements.map((item, idx) => (
@@ -717,7 +703,7 @@ const Slide8 = () => {
             transition={{ duration: 0.5, delay: 0.4 + idx * 0.08, type: "spring", bounce: 0.2 }}
             className="achievement-item"
           >
-            <span className="achievement-icon">✨</span>
+            <span className="achievement-icon"></span>
             <span>{item}</span>
           </motion.div>
         ))}
