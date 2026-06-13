@@ -10,12 +10,6 @@ import screen3_1 from '../images/3.1.png'
 import screen3_2 from '../images/3.2.png'
 import screen4_1 from '../images/4.1.png'
 import screen4_2 from '../images/4.2.png'
-import icon1 from '../images/science.png'
-import icon2 from '../images/science.png'
-import icon3 from '../images/science.png'
-import icon4 from '../images/science.png'
-import icon5 from '../images/science.png'
-import icon6 from '../images/science.png'
 import './Presentation.css';
 
 const Presentation = () => {
@@ -492,12 +486,12 @@ const Slide3 = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
   
   const technologies = [
-    { name: "React 19", icon: {icon1}, color: "#61dafb", desc: "Библиотека для создания пользовательских интерфейсов" },
-    { name: "Firebase", icon: {icon2}, color: "#ffca28", desc: "Платформа для серверной части и аутентификации" },
-    { name: "Three.js", icon: {icon3}, color: "#c77dff", desc: "3D-глобус с интерактивными маркерами" },
-    { name: "Framer Motion", icon: {icon4}, color: "#d4af37", desc: "Плавные анимации и переходы" },
-    { name: "CSS3", icon: {icon5}, color: "#2965f1", desc: "Стилизация и адаптивный дизайн" },
-    { name: "JavaScript", icon: {icon6}, color: "#f7df1e", desc: "Логика приложения" },
+    { name: "React 19", icon: "", color: "#61dafb", desc: "Библиотека для создания пользовательских интерфейсов" },
+    { name: "Firebase", icon: "", color: "#ffca28", desc: "Платформа для серверной части и аутентификации" },
+    { name: "Three.js", icon: "", color: "#c77dff", desc: "3D-глобус с интерактивными маркерами" },
+    { name: "Framer Motion", icon: "", color: "#d4af37", desc: "Плавные анимации и переходы" },
+    { name: "CSS3", icon: "", color: "#2965f1", desc: "Стилизация и адаптивный дизайн" },
+    { name: "JavaScript", icon: "", color: "#f7df1e", desc: "Логика приложения" },
   ];
   
   return (
