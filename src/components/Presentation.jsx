@@ -514,7 +514,6 @@ const Slide3 = () => {
             className="tech-card"
             style={{ borderBottomColor: tech.color }}
           >
-            <div className="tech-icon" style={{ background: `${tech.color}20`, color: tech.color }}>{tech.icon}</div>
             <h3>{tech.name}</h3>
             <p>{tech.desc}</p>
           </motion.div>
